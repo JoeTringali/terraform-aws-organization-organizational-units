@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "tringali-joe-management"
-    key    = "terraform"
+    key    = "terraform/organization-organizational-units"
     region = "us-east-1"
   }
 }
