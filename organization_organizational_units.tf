@@ -48,57 +48,97 @@ resource "aws_organizations_organizational_unit" "workloads-nonprod" {
   parent_id = aws_organizations_organizational_unit.workloads.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging" {
-  name      = "PolicyStaging"
+resource "aws_organizations_organizational_unit" "policy-staging" {
+  name      = "Policy Staging"
   parent_id = var.organization_root_id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-security" {
+resource "aws_organizations_organizational_unit" "policy-staging-security" {
   name      = "Security"
-  parent_id = aws_organizations_organizational_unit.policystaging.id
+  parent_id = aws_organizations_organizational_unit.policy-staging.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-security-prod" {
+resource "aws_organizations_organizational_unit" "policy-staging-security-prod" {
   name      = var.prod_ou_name
-  parent_id = aws_organizations_organizational_unit.policystaging-security.id
+  parent_id = aws_organizations_organizational_unit.policy-staging-security.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-security-nonprod" {
+resource "aws_organizations_organizational_unit" "policy-staging-security-nonprod" {
   name      = var.non_prod_ou_name
-  parent_id = aws_organizations_organizational_unit.policystaging-security.id
+  parent_id = aws_organizations_organizational_unit.policy-staging-security.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-infrastructure" {
+resource "aws_organizations_organizational_unit" "policy-staging-infrastructure" {
   name      = "Infrastructure"
-  parent_id = aws_organizations_organizational_unit.policystaging.id
+  parent_id = aws_organizations_organizational_unit.policy-staging.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-infrastructure-prod" {
+resource "aws_organizations_organizational_unit" "policy-staging-infrastructure-prod" {
   name      = var.prod_ou_name
-  parent_id = aws_organizations_organizational_unit.policystaging-infrastructure.id
+  parent_id = aws_organizations_organizational_unit.policy-staging-infrastructure.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-infrastructure-nonprod" {
+resource "aws_organizations_organizational_unit" "policy-staging-infrastructure-nonprod" {
   name      = var.non_prod_ou_name
-  parent_id = aws_organizations_organizational_unit.policystaging-infrastructure.id
+  parent_id = aws_organizations_organizational_unit.policy-staging-infrastructure.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-workloads" {
+resource "aws_organizations_organizational_unit" "policy-staging-workloads" {
   name      = "Workloads"
-  parent_id = aws_organizations_organizational_unit.policystaging.id
+  parent_id = aws_organizations_organizational_unit.policy-staging.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-workloads-prod" {
+resource "aws_organizations_organizational_unit" "policy-staging-workloads-prod" {
   name      = var.prod_ou_name
-  parent_id = aws_organizations_organizational_unit.policystaging-workloads.id
+  parent_id = aws_organizations_organizational_unit.policy-staging-workloads.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-workloads-nonprod" {
+resource "aws_organizations_organizational_unit" "policy-staging-workloads-nonprod" {
   name      = var.non_prod_ou_name
-  parent_id = aws_organizations_organizational_unit.policystaging-workloads.id
+  parent_id = aws_organizations_organizational_unit.policy-staging-workloads.id
 }
 
-resource "aws_organizations_organizational_unit" "policystaging-sandbox" {
+resource "aws_organizations_organizational_unit" "policy-staging-sandbox" {
   name      = "Sandbox"
-  parent_id = aws_organizations_organizational_unit.policystaging.id
+  parent_id = aws_organizations_organizational_unit.policy-staging.id
+}
+
+resource "aws_organizations_organizational_unit" "suspended" {
+  name      = "Suspended"
+  parent_id = var.organization_root_id
+}
+
+resource "aws_organizations_organizational_unit" "individual-business-users" {
+  name      = "Individual Business Users"
+  parent_id = var.organization_root_id
+}
+
+resource "aws_organizations_organizational_unit" "exceptions" {
+  name      = "Exceptions"
+  parent_id = var.organization_root_id
+}
+
+resource "aws_organizations_organizational_unit" "deployments" {
+  name      = "Deployments"
+  parent_id = var.organization_root_id
+}
+
+resource "aws_organizations_organizational_unit" "deployments-prod" {
+  name      = var.prod_ou_name
+  parent_id = aws_organizations_organizational_unit.deployments.id
+}
+
+resource "aws_organizations_organizational_unit" "deployments-nonprod" {
+  name      = var.non_prod_ou_name
+  parent_id = aws_organizations_organizational_unit.deployments.id
+}
+
+resource "aws_organizations_organizational_unit" "transitional" {
+  name      = "Transitional"
+  parent_id = var.organization_root_id
+}
+
+resource "aws_organizations_organizational_unit" "business-continuity" {
+  name      = "Business Continuity"
+  parent_id = var.organization_root_id
 }
