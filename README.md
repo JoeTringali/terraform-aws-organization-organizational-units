@@ -39,7 +39,9 @@ organization_root_id = "r-xxxx"
 3. Initialize the working directory:
 
 ```
+  terraform init -backend-config="access_key=<your access key>" -backend-config="secret_key=<your secret key>" -backend-config="region=<your region>"
   terraform init
+
 ```
 
 4.  Make sure `providers.tf` is formatted correctly:
