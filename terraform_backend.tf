@@ -1,7 +1,3 @@
 terraform {
-  backend "s3" {
-    bucket = "tringali-joe-management"
-    key    = "terraform/organization-organizational-units"
-    region = "us-east-1"
-  }
+  backend "s3" {}
 }

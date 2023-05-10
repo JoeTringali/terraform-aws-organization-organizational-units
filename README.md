@@ -30,52 +30,60 @@ terminal session:
 1.  Download code from GitHub repo 
     (<https://github.com/JoeTringali/terraform-aws-organization-organizatioal-units>).
 
-2.  Edit the terraform.tfvars file to include the id of the organization's root organizational unit:
+1.  Edit the terraform.tfvars file to include the id of the organization's root organizational unit:
 
 ```
 organization_root_id = "r-xxxx"
 ```
 
-3. Initialize the working directory:
+1. Create and edit a backend.hcl file to include S3 backend configuration:
 
 ```
-  terraform init
+  bucket = "tringali-joe-management"
+  key    = "terraform/organization-organizational-units"
+  region = "us-east-1"
+```
+
+1. Initialize the working directory:
+
+```
+  terraform init --backend-config=backend.hcl
 
 ```
 
-4.  Make sure `providers.tf` is formatted correctly:
+1.  Make sure `providers.tf` is formatted correctly:
 
 ```
   terraform fmt
 ```
 
-5. See what it's expecting for the organizational units:
+1. See what it's expecting for the organizational units:
 
 ```
   terraform plan
 ```
 > You should then see what the outputs will produce.
 
-6.  Deploy your organizational units:
+1.  Deploy your organizational units:
 
 ```
   terraform apply
 ```
 
-7. Enter `yes` at the prompt. It will then take a few minutes to finish running.
+1. Enter `yes` at the prompt. It will then take a few minutes to finish running.
 
-8. Monitor the progress and wait for the completion of the ```terraform apply``` command before
+1. Monitor the progress and wait for the completion of the ```terraform apply``` command before
 proceeding.
 
-9. Confirm that the organizational units deployed:
+1. Confirm that the organizational units deployed:
 
 ```
   terraform state list
 ```
 
-10. Check the returned list of resources to ensure the organizational units were successfully deployed.
+1. Check the returned list of resources to ensure the organizational units were successfully deployed.
 
-11. In the [AWS Console browser window](https://aws.amazon.com/console/), navigate to **AWS Organizations** and confirm that your organizational units are listed.
+1. In the [AWS Console browser window](https://aws.amazon.com/console/), navigate to **AWS Organizations** and confirm that your organizational units are listed.
 
 ## Cleanup
 
