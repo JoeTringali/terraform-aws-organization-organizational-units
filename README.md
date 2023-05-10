@@ -30,13 +30,13 @@ terminal session:
 1.  Download code from GitHub repo 
     (<https://github.com/JoeTringali/terraform-aws-organization-organizatioal-units>).
 
-2.  Edit the terraform.tfvars file to include the id of the organization's root organizational unit:
+2.  Edit the `terraform.tfvars` file to include the id of the organization's root organizational unit:
 
 ```
 organization_root_id = "r-xxxx"
 ```
 
-3. Create and edit a backend.hcl file to include S3 backend configuration:
+3. Create and edit a `backend.hcl` file to include S3 backend configuration:
 
 ```
   bucket = "tringali-joe-management"
