@@ -39,9 +39,9 @@ organization_root_id = "r-xxxx"
 3. Create and edit a `backend.hcl` file to include S3 backend configuration:
 
 ```
-  bucket = "tringali-joe-management"
-  key    = "terraform/organization-organizational-units"
-  region = "us-east-1"
+  bucket = "<name of your S3 bucket>"
+  key    = "<path to your terraform key>"
+  region = "<region of your S3 bucket>"
 ```
 
 4. Initialize the working directory:
