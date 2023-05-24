@@ -42,7 +42,6 @@ terminal session:
 
     ```
       terraform init --backend-config=backend.hcl
-
     ```
 
 1.  Make sure `providers.tf` is formatted correctly:
