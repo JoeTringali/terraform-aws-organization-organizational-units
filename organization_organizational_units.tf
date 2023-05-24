@@ -1,6 +1,8 @@
+data "aws_organizations_organization" "org" {}
+
 resource "aws_organizations_organizational_unit" "security" {
   name      = "Security"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "security-prod" {
@@ -15,7 +17,7 @@ resource "aws_organizations_organizational_unit" "security-nonprod" {
 
 resource "aws_organizations_organizational_unit" "infrastructure" {
   name      = "Infrastructure"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "infrastructure-prod" {
@@ -30,12 +32,12 @@ resource "aws_organizations_organizational_unit" "infrastructure-nonprod" {
 
 resource "aws_organizations_organizational_unit" "sandbox" {
   name      = "Sandbox"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "workloads" {
   name      = "Workloads"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "workloads-prod" {
@@ -50,7 +52,7 @@ resource "aws_organizations_organizational_unit" "workloads-nonprod" {
 
 resource "aws_organizations_organizational_unit" "policy-staging" {
   name      = "Policy Staging"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "policy-staging-security" {
@@ -105,22 +107,22 @@ resource "aws_organizations_organizational_unit" "policy-staging-sandbox" {
 
 resource "aws_organizations_organizational_unit" "suspended" {
   name      = "Suspended"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "individual-business-users" {
   name      = "Individual Business Users"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "exceptions" {
   name      = "Exceptions"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "deployments" {
   name      = "Deployments"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "deployments-prod" {
@@ -135,10 +137,10 @@ resource "aws_organizations_organizational_unit" "deployments-nonprod" {
 
 resource "aws_organizations_organizational_unit" "transitional" {
   name      = "Transitional"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }
 
 resource "aws_organizations_organizational_unit" "business-continuity" {
   name      = "Business Continuity"
-  parent_id = var.organization_root_id
+  parent_id = data.aws_organizations_organization.org.roots[0].id
 }

@@ -1,8 +1,3 @@
-variable "organization_root_id" {
-  description = "Organization Root ID"
-  type        = string
-}
-
 variable "prod_ou_name" {
   description = "Production OU name"
   type        = string
