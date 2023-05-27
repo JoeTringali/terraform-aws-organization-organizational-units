@@ -36,6 +36,8 @@ terminal session:
       bucket = "<name of your S3 bucket>"
       key    = "<path to your terraform key>"
       region = "<region of your S3 bucket>"
+
+      dynamodb_table = "<name of your DynamoDB table>"
     ```
 
 1. Initialize the working directory:
